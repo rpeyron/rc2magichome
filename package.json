@@ -1,0 +1,19 @@
+{
+  "name": "rc2magichome",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "run": "node ./main.js",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.8"
+  },
+  "dependencies": {
+    "magic-home": "^2.9.0",
+    "mqtt": "^5.3.5"
+  }
+}
