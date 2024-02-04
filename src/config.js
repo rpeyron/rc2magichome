@@ -1,12 +1,22 @@
 
 export default {
+    /** @type string - MQTT connection string */
     mqttConnectString: "mqtt://localhost",
+    /** @type string - MQTT topic to get remote commands codes */
+    mqttConnectTopic: "rc",
+    /** @type number - Interval in ms to update device states */
     updateStatesIntervalMs: 5000,
+    /** @type number - Interval in ms to scan for new devices */
     scanIntervalMs: 5000,
+    /** @type number - Timeout in ms to be used to scan for new devices */
     scanTimeoutMs: 2000,
+    /** @type number - Interval in ms to check connection */
     checkConnectionIntervalMs: 5000,
+    /** @type number - Max number of retries of calls to magichome LED */
     retriesMax: 5,
+    /** @type number - Sleep in ms between retries */
     retriesSleepMs: 200,
+    /** @type number - Delay in ms before querying to update cached states */
     delayBeforeUpdateStateMs: 50,
 
     /** @type Array<import("./devices-cache").DeviceDefinition> */

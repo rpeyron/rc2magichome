@@ -30,7 +30,7 @@ const client = connect(config.mqttConnectString);
 
 function ensureConnected() {
   if (!client.connected) client.on("connect", () => {
-    client.subscribe("rc", (err) => {
+    client.subscribe(config.mqttConnectTopic, (err) => {
       if (!err) {
         console.log("Successfully connected to MQTT")
       }
@@ -46,7 +46,7 @@ client.on('close', function() {
 });
 
 client.on("message", (topic, message) => {
-  if (topic == "rc") {
+  if (topic == config.mqttConnectTopic) {
     let rc = message.toString()
     let matchingRemotes = config.remotes.filter(r => Array.isArray(r.rc)?r.rc.includes(rc):r.rc == rc)
     if (matchingRemotes.length > 0) {
