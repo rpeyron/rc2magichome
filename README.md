@@ -60,16 +60,16 @@ And more advanced config can be done to include custom functions:
             function: async (devices, states) => {
                 let curState = states[0]
                 if (!curState?.on) {
-                    devices.forEach(async d => d && await d.setWhite(2) && await d.setPower(true))
-                } else if (curState?.on && (curState?.white == 2 || curState?.white == 100)) {
-                    devices[0]?.setWhite(5)
-                    devices[1]?.setWhite(25)
-                } else if (curState?.on && (curState?.white == 20)) {
-                    devices[0]?.setWhite(100)
-                    devices[1]?.setWhite(100)
-                } else {
+                    devices.forEach(async d => d && await d.setWhite(10) && await d.setPower(true))
+                } else if (curState?.on && (curState?.white == 10 || curState?.white == 255)) {
                     devices[0]?.setWhite(20)
                     devices[1]?.setWhite(100)
+                } else if (curState?.on && (curState?.white == 50)) {
+                    devices[0]?.setWhite(255)
+                    devices[1]?.setWhite(255)
+                } else {
+                    devices[0]?.setWhite(50)
+                    devices[1]?.setWhite(255)
                 }
             }
         },
