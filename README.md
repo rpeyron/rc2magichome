@@ -14,6 +14,10 @@ The install script will:
 - Register systemd start script
 - Start rc2magichome
 
+# Typical architecture
+
+![](architecture.png)
+
 
 # Configuration
 
