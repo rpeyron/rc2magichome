@@ -18,6 +18,8 @@ export default {
     retriesSleepMs: 200,
     /** @type number - Delay in ms before querying to update cached states */
     delayBeforeUpdateStateMs: 50,
+    /** @type number - Delay in ms before a new command */
+    delayBetweenCommandsMs: 400,
 
     /** @type Array<import("./devices-cache").DeviceDefinition> */
     devices: [

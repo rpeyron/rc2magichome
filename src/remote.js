@@ -4,6 +4,7 @@
  *  @property {string | Array<string>} [toggle] - If set, device or list of device to be toggled by the remote control
  *  @property {Array<string>} [devices] - If set, list of device to be controlled by the remote control
  *  @property {(devices: Array<import("./device").DeviceInterface|undefined>, states: Array<import("./device").DeviceState|undefined>) => Promise<void>} [function] - If set, the custom function to be run on the devices list
+ *  @property {number | undefined} [lastCommandDate] - Last command timestamp
  */
 
 
@@ -14,7 +15,7 @@
 export async function remoteExecute(remote, cache) {
     try {
         console.log(`Remote ${remote.title} (${remote.rc}) pressed - ${new Date().toISOString()}`)	
-    
+   
         // Toggle mode
         if (remote.toggle && remote.toggle.length > 0) {
           let devices = cache.getDevicesFromDeviceTitles(Array.isArray(remote.toggle)?remote.toggle:[remote.toggle])

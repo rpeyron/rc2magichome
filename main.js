@@ -50,7 +50,14 @@ client.on("message", (topic, message) => {
     let rc = message.toString()
     let matchingRemotes = config.remotes.filter(r => Array.isArray(r.rc)?r.rc.includes(rc):r.rc == rc)
     if (matchingRemotes.length > 0) {
-      matchingRemotes.forEach(remote => remoteExecute(remote, deviceCache))
+      matchingRemotes.forEach(remote => {
+        if (!remote.lastCommandDate || ((Date.now() - remote.lastCommandDate) > config.delayBetweenCommandsMs)) {
+          remote.lastCommandDate = Date.now()
+          remoteExecute(remote, deviceCache)
+        } else {
+          console.warn(`Remote ${rc} command already sent in the last ${config.delayBetweenCommandsMs}ms`)
+        }
+      })
     } else {
       console.error(`Remote ${rc} not found in config`)
     }
