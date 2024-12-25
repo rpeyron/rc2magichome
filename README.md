@@ -1,5 +1,7 @@
 # Installation
 
+## Startup script
+
 Follow these steps:
 ```sh
 git clone https://github.com/rpeyron/rc2magichome
@@ -14,10 +16,26 @@ The install script will:
 - Register systemd start script
 - Start rc2magichome
 
+
+## Docker
+
+You can also use docker.
+
+Build with:
+```
+./build.sh
+```
+
+Run with:
+```
+docker run --network host -v /data/rc2magichome/config.local.js:/app/config.local.js rc2magichome
+```
+
+Or use `docker-compose.yml`  if you prefer docker-compose
+
 # Typical architecture
 
 ![](architecture.png)
-
 
 # Configuration
 

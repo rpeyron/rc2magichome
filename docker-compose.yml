@@ -1,0 +1,9 @@
+services:
+  rc2magichome:
+    image: rc2magichome:latest
+    container_name: rc2magichome
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - /data/rc2magichome/config.local.js:/app/config.local.js
+

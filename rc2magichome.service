@@ -5,6 +5,7 @@ After=network-online.target
 [Service]
 ExecStart=/usr/local/bin/rc2magichome.js
 Restart=always
+RestartSec=10s
 
 [Install]
 WantedBy=multi-user.target
