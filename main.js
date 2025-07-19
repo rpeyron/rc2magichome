@@ -53,6 +53,7 @@ client.on("message", (topic, message) => {
       matchingRemotes.forEach(remote => {
         if (!remote.lastCommandDate || ((Date.now() - remote.lastCommandDate) > config.delayBetweenCommandsMs)) {
           remote.lastCommandDate = Date.now()
+          if (config.mqttRemotePublishTopic && remote.title) client.publish(config.mqttRemotePublishTopic, remote.title)
           remoteExecute(remote, deviceCache)
         } else {
           console.warn(`Remote ${rc} command already sent in the last ${config.delayBetweenCommandsMs}ms`)

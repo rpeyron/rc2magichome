@@ -4,6 +4,8 @@ export default {
     mqttConnectString: "mqtt://localhost",
     /** @type string - MQTT topic to get remote commands codes */
     mqttConnectTopic: "rc",
+    /** @type string - MQTT topic to send detected remote (not published if undefined) */
+    mqttRemotePublishTopic: undefined,
     /** @type number - Interval in ms to update device states */
     updateStatesIntervalMs: 5000,
     /** @type number - Interval in ms to scan for new devices */
