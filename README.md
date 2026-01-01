@@ -100,3 +100,7 @@ And more advanced config can be done to include custom functions:
 ```
 
 See `src/config.js` for full configuration options documentation.
+
+# Home Assistant
+
+There is also a native version for HomeAssistant implemented in python in [python_scripts/rc_lights.py]
